@@ -1,0 +1,19 @@
+#results = model(r"C:\Users\Admin\Desktop\Sensor FUsion\dataset_astyx_hires2019\dataset_astyx_demo\camera_bfly\000000.png")
+
+import torch
+
+# Model
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+
+# Images
+imgs = [r'C:\Users\Admin\Desktop\Sensor FUsion\dataset_astyx_hires2019\dataset_astyx_demo\camera_bfly\000000.png']  # batch of images
+
+# Inference
+results = model(imgs)
+
+# Results
+results.show()
+#results.save()  # or .show()
+
+results.xyxy[0]  # img1 predictions (tensor)
+results.pandas().xyxy[0]
